@@ -4,24 +4,13 @@ import { Link } from "react-router";
 
 const Card = styled(Link)`
   display: block;
-background: ${({ dark, length }) =>
-  dark
-    ? "#2b3945" 
-    : length
-      ? "#ffffff" 
-      : "#dfe4e8ff" 
-};
-
-color: ${({ dark }) =>
-  dark
-    ? "#ffffff" 
-    : "#111517" 
-};
-
+  width: 250px;
+  margin: 0 auto; // center card in its flex/grid cell
+  background: ${({ dark }) => (dark ? "#2b3945" : "#ffffff")};
+  color: ${({ dark }) => (dark ? "#ffffff" : "#111517")};
   border-radius: 6px;
   overflow: hidden;
   text-decoration: none;
-
   transition: transform 0.2s, background 0.3s, color 0.3s;
   &:hover {
     transform: scale(1.03);
@@ -50,6 +39,13 @@ const Text = styled.p`
   strong {
     font-weight: 600;
   }
+`;
+
+const Grid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
 `;
 
 export default function CountryCard({ country, darkMode }) {

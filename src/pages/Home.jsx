@@ -51,11 +51,13 @@ const Select = styled.select`
   }
 `;
 
-
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: ${({ count }) =>
+    count === 1 ? "flex-start" : "space-evenly"};
+  align-items: flex-start;
 `;
 
 const Container = styled.div`
@@ -75,8 +77,10 @@ export default function Home({ darkMode }) {
     }
   }, []);
 
-  const filtered = countries.filter(country => {
-    const matchesSearch = country.name.toLowerCase().includes(search.toLowerCase());
+  const filtered = countries.filter((country) => {
+    const matchesSearch = country.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
     const matchesRegion = region === "All" || country.region === region;
     return matchesSearch && matchesRegion;
   });
@@ -91,13 +95,16 @@ export default function Home({ darkMode }) {
           onChange={(e) => setSearch(e.target.value)}
           dark={darkMode}
         />
-
       </Controls>
 
-      <Grid>
+      <Grid count={filtered.length}>
         {filtered.length > 0 ? (
-          filtered.map(country => (
-            <CountryCard key={country.alpha3Code} country={country} darkMode={darkMode} />
+          filtered.map((country) => (
+            <CountryCard
+              key={country.alpha3Code}
+              country={country}
+              darkMode={darkMode}
+            />
           ))
         ) : (
           <p>No countries found.</p>
