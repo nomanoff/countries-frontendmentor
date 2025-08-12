@@ -45,6 +45,7 @@ const Info = styled.div`
   p {
     margin: 0.4rem 0;
   }
+  color: ${({ dark }) => (dark ? "#ffffff" : "#111517")};
 `;
 
 export default function CountryDetail({ darkMode }) {
@@ -58,7 +59,7 @@ export default function CountryDetail({ darkMode }) {
       <BackBtn to="/" dark={darkMode}>⬅ Back</BackBtn>
       <Layout>
         <Flag src={country.flags.svg} alt={country.name} />
-        <Info>
+        <Info dark={darkMode}>
           <h1>{country.name}</h1>
           <p><strong>Population:</strong> {country.population.toLocaleString()}</p>
           <p><strong>Region:</strong> {country.region}</p>

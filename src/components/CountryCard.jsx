@@ -26,6 +26,8 @@ color: ${({ dark }) =>
   &:hover {
     transform: scale(1.03);
   }
+  width: 100%;
+  max-width: 350px;
 `;
 
 const Flag = styled.img`
