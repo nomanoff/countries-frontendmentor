@@ -3,26 +3,17 @@ import styled from "styled-components";
 import { Link } from "react-router";
 
 const Card = styled(Link)`
+  max-width: 300px; 
+  width: 100%;
   display: block;
-background: ${({ dark, length }) =>
-  dark
-    ? "#2b3945" 
-    : length
-      ? "#ffffff" 
-      : "#dfe4e8ff" 
-};
-
-color: ${({ dark }) =>
-  dark
-    ? "#ffffff" 
-    : "#111517" 
-};
-
+  background: ${({ dark }) => (dark ? "#2b3945" : "#ffffff")};
+  color: ${({ dark }) => (dark ? "#ffffff" : "#111517")};
   border-radius: 6px;
   overflow: hidden;
   text-decoration: none;
+  transition: transform 0.2s;
+  margin: 0 auto;
 
-  transition: transform 0.2s, background 0.3s, color 0.3s;
   &:hover {
     transform: scale(1.03);
   }
