@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
+import { BsFillMoonStarsFill } from "react-icons/bs";
+import { MdSunny } from "react-icons/md";
 const Nav = styled.nav`
   background: ${({ dark }) => (dark ? "#2b3945" : "#f1f1f1ff")};
   color: ${({ dark }) => (dark ? "#ffffff" : "#111517")};
@@ -41,7 +42,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
       <Title>Country finderBy <br /> <Subtitle>Amirbek and Farruxbek</Subtitle></Title>
       
       <Button onClick={() => setDarkMode(prev => !prev)}>
-        {darkMode ? "☀ Light Mode" : "🌙 Dark Mode"}
+        {darkMode ? <MdSunny /> : <BsFillMoonStarsFill />}
       </Button>
     </Nav>
   );

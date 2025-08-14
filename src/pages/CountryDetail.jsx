@@ -51,7 +51,7 @@ export default function CountryDetail({ darkMode }) {
   const { code } = useParams();
   const country = data.countries.find(c => c.alpha3Code === code);
 
-  if (!country) return <p>Country not found.</p>;
+  if (!country) return <p>country not found.....</p>;
 
   return (
     <Container>
