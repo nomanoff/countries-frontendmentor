@@ -5,7 +5,7 @@ import CountryCard from "../components/CountryCard";
 
 const Controls = styled.div`
   display: flex;
-  justify-content: space-between;
+
   margin-bottom: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
