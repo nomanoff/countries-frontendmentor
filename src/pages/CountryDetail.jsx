@@ -14,14 +14,16 @@ const BackBtn = styled(Link)`
   padding: 0.6rem 1.2rem;
   margin-bottom: 2rem;
   border-radius: 8px;
-  background: ${({ dark }) => (dark ? "#14181cff" : "white")};
-  box-shadow: ${({ dark }) =>dark ? "0 2px 8px rgba(255,255,255,0.1)" : "0 2px 8px rgba(0,0,0,0.1)"};
+  background: ${({ dark }) => (dark ? "#2b3945" : "white")};
+  box-shadow: ${({ dark }) =>
+    dark
+      ? "0 2px 8px rgba(255,255,255,0.1)"
+      : "0 2px 8px rgba(0,0,0,0.1)"};
   text-decoration: none;
-  color: ${({ dark }) => (dark ? "#c3ffedff" : "black")};
+  color: ${({ dark }) => (dark ? "#fff" : "black")};
   font-weight: bold;
   transition: all 0.3s ease;
 `;
-
 
 const Layout = styled.div`
   display: flex;
@@ -47,6 +49,25 @@ const Info = styled.div`
   }
 `;
 
+const Borders = styled.div`
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+const BorderBtn = styled.span`
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
+  background: ${({ dark }) => (dark ? "#2b3945" : "white")};
+  box-shadow: ${({ dark }) =>
+    dark
+      ? "0 0 5px rgba(255,255,255,0.1)"
+      : "0 0 5px rgba(0,0,0,0.1)"};
+  font-size: 0.9rem;
+`;
+
 export default function CountryDetail({ darkMode }) {
   const { code } = useParams();
   const country = data.countries.find(c => c.alpha3Code === code);
@@ -60,12 +81,23 @@ export default function CountryDetail({ darkMode }) {
         <Flag src={country.flags.svg} alt={country.name} />
         <Info>
           <h1>{country.name}</h1>
+          <p><strong>Native Name:</strong> {country.nativeName}</p>
           <p><strong>Population:</strong> {country.population.toLocaleString()}</p>
           <p><strong>Region:</strong> {country.region}</p>
-          <p><strong>Subregion:</strong> {country.subregion}</p>
+          <p><strong>Sub Region:</strong> {country.subregion}</p>
           <p><strong>Capital:</strong> {country.capital}</p>
-          <p><strong>Languages:</strong> {country.languages.map(l => l.name).join(', ')}</p>
+          <p><strong>Top Level Domain:</strong> {country.topLevelDomain.join(', ')}</p>
           <p><strong>Currencies:</strong> {country.currencies.map(c => c.name).join(', ')}</p>
+          <p><strong>Languages:</strong> {country.languages.map(l => l.name).join(', ')}</p>
+          
+          {country.borders && country.borders.length > 0 && (
+            <Borders>
+              <strong>Border Countries:</strong>
+              {country.borders.map((b, i) => (
+                <BorderBtn key={i} dark={darkMode}>{b}</BorderBtn>
+              ))}
+            </Borders>
+          )}
         </Info>
       </Layout>
     </Container>
