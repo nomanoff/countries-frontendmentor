@@ -5,7 +5,7 @@ import CountryCard from "../components/CountryCard";
 
 const Controls = styled.div`
   display: flex;
-  justify-content: space-between;
+
   margin-bottom: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
@@ -37,7 +37,7 @@ const Select = styled.select`
   width: 169px;
   height: 50px;
   padding: 0rem;
-  border-radius: 10px;
+  border-radius: 4px;
   border: 1px solid ${({ dark }) => (dark ? "#3a4a5a" : "#ccc")};
   background: ${({ dark }) => (dark ? "#2b3945" : "#fff")};
   color: ${({ dark }) => (dark ? "#eee" : "#111517")};
@@ -102,14 +102,6 @@ export default function Home({ darkMode }) {
           onChange={(e) => setSearch(e.target.value)}
           dark={darkMode}
         />
-        <Select value={region} onChange={(e) => setRegion(e.target.value)} dark={darkMode}>
-          <option value="All">Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </Select>
 
         <Select
           value={region}
@@ -147,6 +139,5 @@ export default function Home({ darkMode }) {
       </Grid>
 
     </Container>
-
   );
 }
