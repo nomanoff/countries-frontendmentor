@@ -1,12 +1,43 @@
-# React + Vite
+🌍 Countries App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dunyo davlatlari haqida ma’lumot olish loyihasi. Qidirish, mintaqa bo‘yicha filtrlash, batafsil ko‘rish va Dark/Light rejim mavjud.
+Frontend Mentor challenge asosida yaratilgan.
 
-Currently, two official plugins are available:
+🚀 Xususiyatlar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Davlatlarni nomi bo‘yicha qidirish
 
-## Expanding the ESLint configuration
+Mintaqa bo‘yicha filtrlash
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Har bir davlat haqida batafsil ma’lumot
+
+Qo‘shni davlatlar ro‘yxati
+
+Dark/Light rejim
+
+🛠 Texnologiyalar
+
+React + Vite
+
+React Router
+
+CSS / Styled-components (loyihangdagiga qarab)
+
+REST Countries API
+
+⚙️ O‘rnatish
+git clone https://github.com/nomanoff/countries-frontendmentor.git
+cd countries-frontendmentor
+npm install
+npm run dev
+
+👥 Ishtirokchilar
+
+@nomanoff — Asosiy ishlab chiquvchi
+
+@farruh-saibjanov — Fork va o‘zgarishlar muallifi
+
+@hojie1o - Fork va o`zgarishlar muallifi
+📜 Litsenziya
+
+MIT License
